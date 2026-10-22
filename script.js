@@ -86,7 +86,7 @@ function idle(){
     if(idleImageNumber == 17){
         idleImageNumber = 1;
     }
-    santa.src = "Idle ("+idleImageNumber+").png";
+    santa.src = "images/Idle ("+idleImageNumber+").png";
 }
 
 
@@ -101,7 +101,7 @@ function run(){
     if(runImageNumber == 12){
         runImageNumber = 1;
     }
-    santa.src = "Run ("+runImageNumber+").png";
+    santa.src = "images/Run ("+runImageNumber+").png";
 }
 
 var jumpSound = new Audio("jump.mp3");
@@ -161,7 +161,7 @@ function dead(){
         document.getElementById("gameOver").style.visibility = "visible";
         document.getElementById("endScore").innerHTML = newScore;
     }
-    santa.src = "Dead ("+deadImageNumber+").png";
+    santa.src = "images/Dead ("+deadImageNumber+").png";
 }
 
 //Restart

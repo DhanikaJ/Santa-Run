@@ -1,7 +1,7 @@
 .background{
     width: 100vw;
     height: 100vh;
-    background-image: url("background.png");
+    background-image: url("images/background.png");
     background-size: cover;
     overflow-x: hidden;
     position: absolute;
@@ -15,7 +15,7 @@
     position: absolute;
     width: 60px;
     height: 90px;
-    background-image: url("flame.gif");
+    background-image: url("images/flame.gif");
     background-size: cover;
     margin-top: 675px;
 }
