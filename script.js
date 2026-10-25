@@ -55,7 +55,7 @@ function createBlock(){
     block.id = "block"+blockId;
     blockId++;
 
-    var gap = Math.random()*(1000-400)+400;
+    var gap = Math.random()*(600-200)+200;
     blockMarginLeft = blockMarginLeft+gap;
 
     block.style.marginLeft = blockMarginLeft+"px";
@@ -69,7 +69,7 @@ function moveBlocks(){
     for(var i = 1; i<=blockId;i++){
         var currentBlock = document.getElementById("block"+i);
         var currentMarginLeft = currentBlock.style.marginLeft;
-        var newMarginLeft = parseInt(currentMarginLeft)-20;
+        var newMarginLeft = parseInt(currentMarginLeft)-30;
         currentBlock.style.marginLeft = newMarginLeft+"px";
 
         if(newMarginLeft<=118){
@@ -129,11 +129,11 @@ var santaMarginTop = 520;
 function jump(){
     jumpImageNumber++;
     if(jumpImageNumber<=9){
-        santaMarginTop = santaMarginTop - 20;
+        santaMarginTop = santaMarginTop - 25;
         santa.style.marginTop = santaMarginTop+"px";
     }
     if(jumpImageNumber>=10){
-        santaMarginTop = santaMarginTop + 20;
+        santaMarginTop = santaMarginTop + 25;
         santa.style.marginTop = santaMarginTop+"px";
     }
     if(jumpImageNumber==17){
@@ -152,7 +152,7 @@ var background = document.getElementById("background");
 var backgroundX = 0;
 var backgroundWorkerId = 0;
 function moveBackground(){
-    backgroundX = backgroundX - 20;
+    backgroundX = backgroundX - 30;
     background.style.backgroundPositionX = backgroundX+"px";
 }
 
