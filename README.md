@@ -1,4 +1,4 @@
-# 🎄 Santa Run
+# Santa Run
 
 > A festive endless runner game built with vanilla HTML5, CSS3, and JavaScript. Help Santa dodge flames and deliver presents!
 
@@ -7,7 +7,6 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-000000?logo=javascript)](https://vanilla-js.com/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen)](https://github.com/DhanikaJ/Santa-Run/pulls)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen)]()
 
 ---
@@ -15,11 +14,13 @@
 ## 🎮 Demo
 
 ### Play Online
+
 👉 **[Play Santa Run on GitHub Pages](https://dhanikaj.github.io/Santa-Run/)**
 
 ### Screenshots
-| Gameplay | Game Over |
-|:--------:|:---------:|
+
+|                  Gameplay                  |                  Game Over                  |
+| :----------------------------------------: | :-----------------------------------------: |
 | ![Gameplay](docs/screenshots/gameplay.png) | ![Game Over](docs/screenshots/gameover.png) |
 
 ---
@@ -40,8 +41,8 @@
 
 ## 🎯 How to Play
 
-| Key | Action |
-|-----|--------|
+| Key     | Action               |
+| ------- | -------------------- |
 | `Enter` | Start / Restart Game |
 | `Space` | Jump (while running) |
 
@@ -56,15 +57,15 @@
 
 ## 🛠️ Tech Stack
 
-| Category | Technology |
-|----------|------------|
-| **Markup** | HTML5 |
-| **Styling** | CSS3 (Flexbox, CSS Variables) |
-| **Logic** | Vanilla JavaScript (ES5+) |
-| **Audio** | HTML5 Audio API |
-| **Graphics** | Sprite Sheets (PNG) + GIF |
+| Category       | Technology                    |
+| -------------- | ----------------------------- |
+| **Markup**     | HTML5                         |
+| **Styling**    | CSS3 (Flexbox, CSS Variables) |
+| **Logic**      | Vanilla JavaScript (ES5+)     |
+| **Audio**      | HTML5 Audio API               |
+| **Graphics**   | Sprite Sheets (PNG) + GIF     |
 | **Deployment** | Static Hosting (GitHub Pages) |
-| **Paradigm** | Single-file DOM manipulation |
+| **Paradigm**   | Single-file DOM manipulation  |
 
 ---
 
@@ -93,6 +94,7 @@ Santa Run/
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - A modern web browser (Chrome 60+, Firefox 55+, Safari 11+, Edge 79+)
 - No Node.js, npm, or build tools required
 
@@ -122,17 +124,18 @@ python -m http.server 8000
 ## 🏗️ Game Architecture
 
 ### Core Game Loop
+
 The game uses `setInterval` timers (100ms tick rate) for each subsystem:
 
-| Timer | Interval | Purpose |
-|-------|----------|---------|
-| `runWorkerId` | 100ms | Santa running animation |
-| `jumpWorkerId` | 100ms | Jump physics & animation |
-| `backgroundWorkerId` | 100ms | Background parallax scrolling |
-| `scoreWorkerId` | 100ms | Score increment |
-| `createBlockId` | 100ms | Spawn new flame obstacles |
-| `moveBlockId` | 100ms | Move obstacles + collision detection |
-| `deadWorkerId` | 100ms | Death animation sequence |
+| Timer                | Interval | Purpose                              |
+| -------------------- | -------- | ------------------------------------ |
+| `runWorkerId`        | 100ms    | Santa running animation              |
+| `jumpWorkerId`       | 100ms    | Jump physics & animation             |
+| `backgroundWorkerId` | 100ms    | Background parallax scrolling        |
+| `scoreWorkerId`      | 100ms    | Score increment                      |
+| `createBlockId`      | 100ms    | Spawn new flame obstacles            |
+| `moveBlockId`        | 100ms    | Move obstacles + collision detection |
+| `deadWorkerId`       | 100ms    | Death animation sequence             |
 
 ### Game States
 
@@ -153,6 +156,7 @@ The game uses `setInterval` timers (100ms tick rate) for each subsystem:
 - **Dead** — Death animation plays, game over screen shows with final score
 
 ### Collision Detection
+
 Simple AABB (Axis-Aligned Bounding Box) collision between Santa and flame blocks:
 
 ```javascript
@@ -160,11 +164,12 @@ Simple AABB (Axis-Aligned Bounding Box) collision between Santa and flame blocks
 // Collision zone: block marginLeft between 18px–118px (Santa's X range)
 //                AND Santa's marginTop between 520px–580px (ground level)
 if (newMarginLeft <= 118 && newMarginLeft >= 18) {
-    if (santaMarginTop <= 580 && santaMarginTop > 520) {
-        // Collision! → Trigger game over
-    }
+  if (santaMarginTop <= 580 && santaMarginTop > 520) {
+    // Collision! → Trigger game over
+  }
 }
 ```
+
 ---
 
 ## 🐛 Known Issues
@@ -182,6 +187,6 @@ if (newMarginLeft <= 118 && newMarginLeft >= 18) {
 
 **Made with ❤️ and 🎄 holiday spirit**
 
-[Report Bug](https://github.com/DhanikaJ/Santa-Run/issues) · [Request Feature](https://github.com/DhanikaJ/Santa-Run/issues) · [Play Now](https://dhanikaj.github.io/Santa-Run/) · [Contribute](https://github.com/DhanikaJ/Santa-Run/pulls)
+[Play Now](https://dhanikaj.github.io/Santa-Run/)
 
 </div>
