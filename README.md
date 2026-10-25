@@ -22,8 +22,6 @@
 |:--------:|:---------:|
 | ![Gameplay](docs/screenshots/gameplay.png) | ![Game Over](docs/screenshots/gameover.png) |
 
-> 📸 *Screenshots coming soon — add yours to `docs/screenshots/`*
-
 ---
 
 ## ✨ Features
