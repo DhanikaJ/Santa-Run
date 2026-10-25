@@ -1,0 +1,7 @@
+# This file keeps the screenshots directory in git
+
+Add gameplay screenshots here as:
+- gameplay.png
+- gameover.png
+
+These will automatically appear in the README.
