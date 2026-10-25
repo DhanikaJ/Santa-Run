@@ -1,4 +1,21 @@
 var runStart = 0;
+
+// Detect F11 / fullscreen attempts and warn user
+document.addEventListener("fullscreenchange", function(){
+    if(document.fullscreenElement){
+        // Exit fullscreen automatically to maintain fixed layout
+        document.exitFullscreen();
+    }
+});
+
+// Block F11 key from toggling fullscreen (best-effort)
+document.onkeydown = function(e){
+    if(e.keyCode === 112 || (e.key === 'F11')){
+        e.preventDefault();
+        return false;
+    }
+};
+
 function keyCheck(event){
     //Enter Key
     if(event.which == 13){
@@ -25,7 +42,7 @@ function keyCheck(event){
             }
         }
     }
-}
+};
 
 //Create Block
 var blockMarginLeft = 1000;
@@ -57,8 +74,8 @@ function moveBlocks(){
 
         if(newMarginLeft<=118){
             if(newMarginLeft>=18){
-                if(santaMarginTop<=580){
-                    if(santaMarginTop>520){
+                if(santaMarginTop<=520){
+                    if(santaMarginTop>460){
                         clearInterval(runWorkerId);
                         runSound.pause();
                         clearInterval(jumpWorkerId);
@@ -108,7 +125,7 @@ var jumpSound = new Audio("jump.mp3");
 //Jump Function
 var jumpImageNumber = 1;
 var jumpWorkerId = 0;
-var santaMarginTop = 580;
+var santaMarginTop = 520;
 function jump(){
     jumpImageNumber++;
     if(jumpImageNumber<=9){
@@ -157,7 +174,7 @@ function dead(){
     if(deadImageNumber == 18){
         deadImageNumber = 17;
 
-        santa.style.marginTop = "580px";
+        santa.style.marginTop = 520;
         document.getElementById("gameOver").style.visibility = "visible";
         document.getElementById("endScore").innerHTML = newScore;
     }

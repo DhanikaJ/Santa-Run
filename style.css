@@ -1,6 +1,6 @@
 .background{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background-image: url("images/background.png");
     background-size: cover;
     overflow-x: hidden;
@@ -9,6 +9,19 @@
 
 .body{
     margin: 0px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+}
+
+/* Fixed-size game wrapper to lock aspect ratio */
+.game-wrapper{
+    width: 1800px;
+    height: 845px;
+    position: relative;
+    overflow: hidden;
 }
 
 .block{
@@ -17,13 +30,13 @@
     height: 90px;
     background-image: url("images/flame.gif");
     background-size: cover;
-    margin-top: 675px;
+    margin-top: 610px;
 }
 
 .santa{
     position: absolute;
     height: 200px;
-    margin-top: 580px;
+    margin-top: 520px;
 }
 
 .score{
@@ -64,4 +77,22 @@
     border-style: solid;
     border-radius: 15px;
     cursor: pointer;
+}
+
+/* Prevent layout shift from F11/zoom */
+html,body{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: none;
+}
+
+/* Optional: fullscreen warning overlay (not shown by default) */
+#fullscreen-warning{
+    display: none;
+}
+
+.t1{
+    color:brown;
 }
