@@ -2,13 +2,23 @@
 <html>
     <head>
         <title>Santa Run</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <link rel="stylesheet" href="style.css"/>
     </head>
-    <body class="body" onkeyup="keyCheck(event);">
-        <div class="game-wrapper">
+    <body class="body">
+        <!-- Loading overlay - hides once all assets are preloaded -->
+        <div class="loading" id="loading">
+            <div class="loading-text">Loading Game...</div>
+            <div class="loading-bar">
+                <div class="loading-progress" id="loadingProgress" style="width: 0%"></div>
+            </div>
+            <div class="loading-info" id="loadingInfo">Loading 0 images...</div>
+        </div>
+
+        <div class="game-wrapper" id="gameWrapper">
             <div class="background" id="background">
                 <div class="score" id="score">0</div>
-                <img src="images/Idle (1).png" class="santa" id="santa"/>
+                <img src="images/Idle_1.png" class="santa" id="santa"/>
             </div>
             <div class="gameOver" id="gameOver">
                 <div class="t1">Game Over</div>
@@ -21,4 +31,14 @@
 
         <script src="script.js"></script>
     </body>
+    <script>
+        // Start preloading on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            preloadAllAssets(function() {
+                document.getElementById("loading").style.visibility = "hidden";
+                document.getElementById("gameWrapper").style.visibility = "visible";
+                enableKeyControls = true;
+            });
+        });
+    </script>
 </html>

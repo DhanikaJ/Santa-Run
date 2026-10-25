@@ -1,4 +1,38 @@
-.background{
+/* ── Reset & Base ── */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    touch-action: none;
+}
+
+/* ── Body: fills viewport, centers game-wrapper ── */
+.body {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ── Game Wrapper: fixed 1800×845, scaled via CSS transform ── */
+.game-wrapper {
+    width: 1800px;
+    height: 845px;
+    position: relative;
+    overflow: hidden;
+    transform-origin: 0 0;
+    visibility: hidden;
+}
+
+/* ── Background ── */
+.background {
     width: 100%;
     height: 100%;
     background-image: url("images/background.png");
@@ -7,39 +41,58 @@
     position: absolute;
 }
 
-.body{
-    margin: 0px;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #000;
-}
-
-/* Fixed-size game wrapper to lock aspect ratio */
-.game-wrapper{
-    width: 1800px;
-    height: 845px;
-    position: relative;
-    overflow: hidden;
-}
-
-.block{
+/* ── Obstacles: CSS flame animation (no GIF needed) ── */
+.block {
     position: absolute;
     width: 60px;
     height: 90px;
-    background-image: url("images/flame.gif");
-    background-size: cover;
     margin-top: 610px;
+    /* Flame-like gradient with flickering animation */
+    background: linear-gradient(180deg,
+        #ff9900 0%,
+        #ff6600 25%,
+        #ff3300 55%,
+        #ff0000 100%);
+    border-radius: 5px 5px 50% 50%;
+    box-shadow:
+        0 0 15px #ff6600,
+        0 0 30px #ff3300,
+        0 0 45px #ff0000;
+    animation: flame-flicker 0.2s infinite alternate ease-in-out;
 }
 
-.santa{
+@keyframes flame-flicker {
+    0% {
+        background: linear-gradient(180deg, #ff9900 0%, #ff6600 25%, #ff3300 55%, #ff0000 100%);
+        box-shadow: 0 0 15px #ff6600, 0 0 30px #ff3300, 0 0 45px #ff0000;
+        transform: scaleY(1) scaleX(1);
+    }
+    30% {
+        background: linear-gradient(180deg, #ffaa00 0%, #ff7700 25%, #ff4400 55%, #ff1100 100%);
+        box-shadow: 0 0 20px #ff7700, 0 0 35px #ff4400, 0 0 50px #ff1100;
+        transform: scaleY(1.1) scaleX(1.05);
+    }
+    60% {
+        background: linear-gradient(180deg, #ff8800 0%, #ff5500 25%, #ff2200 55%, #ff0000 100%);
+        box-shadow: 0 0 10px #ff6600, 0 0 25px #ff3300, 0 0 40px #ff0000;
+        transform: scaleY(0.95) scaleX(0.98);
+    }
+    100% {
+        background: linear-gradient(180deg, #ffbb00 0%, #ff8800 25%, #ff5500 55%, #ff2200 100%);
+        box-shadow: 0 0 20px #ff8800, 0 0 35px #ff5500, 0 0 50px #ff2200;
+        transform: scaleY(1.05) scaleX(1.02);
+    }
+}
+
+/* ── Santa ── */
+.santa {
     position: absolute;
     height: 200px;
     margin-top: 520px;
 }
 
-.score{
+/* ── Score ── */
+.score {
     position: absolute;
     font-size: 90px;
     font-family: "Arial";
@@ -47,52 +100,83 @@
     margin-left: 30px;
 }
 
-.gameOver{
+/* ── Game Over ── */
+.gameOver {
     position: absolute;
     width: 100vw;
     height: 10vh;
     visibility: hidden;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     font-size: 90px;
     margin-top: 150px;
     font-family: "Arial";
     font-weight: bold;
 }
 
-.b1{
+/* ── Restart Button ── */
+.b1 {
     width: 250px;
     height: 300px;
     background-color: blue;
-
     font-size: 24px;
     font-family: "Arial";
     font-weight: bold;
     color: white;
-
     border-style: solid;
     border-radius: 15px;
     cursor: pointer;
 }
 
-/* Prevent layout shift from F11/zoom */
-html,body{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    touch-action: none;
+/* ── Game Over Text ── */
+.t1 {
+    color: brown;
 }
 
-/* Optional: fullscreen warning overlay (not shown by default) */
-#fullscreen-warning{
-    display: none;
+/* ── Loading Overlay ── */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-.t1{
-    color:brown;
+.loading-text {
+    color: #ff9900;
+    font-size: 48px;
+    font-family: Arial;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: 0 0 15px #ff6600;
+}
+
+.loading-bar {
+    width: 500px;
+    height: 30px;
+    background: #333;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.loading-progress {
+    height: 100%;
+    background: #ff6600;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+.loading-info {
+    color: #fff;
+    font-size: 24px;
+    font-family: Arial;
 }
